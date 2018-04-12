@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/logo.css">
+	<title>Sign Up</title>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" style="background: #333;">
+      <div class="container">
+        <div class="navbar-header">
+          <h4 style="color:white;" class="navbar-text pull-left">Digital Shop</h4>
+        </div>
+        <div id="navbar">
+          <ul class="nav navbar-nav">
+            <li class="custom-hover"><a style="color:white;" href="login.html">Log In</a></li>
+            <li class="custom-hover"><a style="color:white;" href="about.html">About</a></li>
+            <li class="custom-hover"><a style="color:white;" href="contact.html">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	<li class="nav-custom-active custom-hover"><a style="color:white;" href="signup.html">Sign Up</a></li>
+            <li class="custom-hover"><a style="color:white;" href="adminLogIn.html">Admin? Log in here <span class="glyphicon glyphicon-log-in"></span>
+            		</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<div class="container">
+		<div class="row">
+			<img class="logo" src="image/logo.jpg">
+		</div>
+	</div>
+
+	<div class="container">
+		<div style="margin-top:50px;" class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">Sing Up</div>
+				</div>
+				
+				<div style="padding: 20px;" class="panel-body">
+					
+					<form action="signup.php" class="form-horizontal" method="post">
+
+						<div style="margin-bottom: 10px;" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input id="firstname" type="text" class="form-control" name="fname" value="" placeholder="First Name">
+						</div>
+
+						<div style="margin-bottom: 10px;" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input id="lastname" type="text" class="form-control" name="lname" value="" placeholder="Last Name">
+						</div>
+
+						<div style="margin-bottom: 10px;" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+							<input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">
+						</div>
+
+						<div style="margin-bottom: 10px;" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+							<input id="pass" type="password" class="form-control" name="password" value="" placeholder="Password">
+						</div>
+
+						<div style="margin-bottom: 10px;" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+							<input id="confirmpass" type="password" class="form-control" name="confirmpassword" value="" placeholder="Confirm Password">
+						</div>
+
+						<div style="margin-top:10px; padding-top:10px;" >
+							Already have an account? <a href="login.html">Log in here</a>
+							<button type="submit" class="pull-right gly-btn-pad">
+								<span class="glyphicon glyphicon-floppy-disk"></span>
+							</button>
+							
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+</body>
+</html>
