@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="js/passMatch.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/logo.css">
 	<title>Sign Up</title>
@@ -60,12 +62,16 @@
 
 						<div style="margin-bottom: 10px;" class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-							<input id="pass" type="password" class="form-control" name="password" value="" placeholder="Password">
+							<input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
 						</div>
 
 						<div style="margin-bottom: 10px;" class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-							<input id="confirmpass" type="password" class="form-control" name="confirmpassword" value="" placeholder="Confirm Password">
+							<input id="conPass" type="password" class="form-control" name="conPass" value="" placeholder="Confirm Password">
+						</div>
+
+						<div style="margin-top: 10px;">
+						    <div class="registrationFormAlert" id="checkPassMatch"></div>
 						</div>
 
 						<div style="margin-top:10px; padding-top:10px;" >

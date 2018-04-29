@@ -135,4 +135,138 @@ public class Operator {
 			return retValue;
 		}
 	}
+	
+	public static List<String> userUpdate(int userID, String firstName, String lastName, String email, String oldPass, String password) {
+		List<String> retValue = new ArrayList<String>();
+		try{
+			SessionFactory factory = new Configuration().configure().buildSessionFactory();
+			Session session = factory.openSession();
+			Transaction transaction = session.beginTransaction();
+			
+			Users user = session.get(Users.class, new Integer(userID));
+				
+			if(user != null) {
+				if(user.getPassword().equals(oldPass)) {
+					//update data
+					user.setFirstname(firstName);
+					user.setLastname(lastName);
+					user.setEmail(email);
+					if(password != null)
+						user.setPassword(password);
+					
+					session.persist(user);
+					retValue.add(0, "true");
+				} else {
+					retValue.add(0, "false");
+					retValue.add(1, "Old password did not match");
+				}
+			} else {
+				retValue.add(0, "false");
+				retValue.add(1, "No user found");
+			}
+			
+			transaction.commit();
+			session.close();
+			return retValue;
+		} catch (Exception e) {
+			e.printStackTrace();
+			retValue.add(0, "false");
+			retValue.add(1, "Exception Occured");
+			return retValue;
+		}
+	}
+	
+	public static List<String> adminUpdate(int adminID, String firstName, String lastName, String email, String oldPass, String password) {
+		List<String> retValue = new ArrayList<String>();
+		try{
+			SessionFactory factory = new Configuration().configure().buildSessionFactory();
+			Session session = factory.openSession();
+			Transaction transaction = session.beginTransaction();
+			
+			Admins admin = session.get(Admins.class, new Integer(adminID));
+				
+			if(admin != null) {
+				if(admin.getPassword().equals(oldPass)) {
+					//update values
+					admin.setFirstname(firstName);
+					admin.setLastname(lastName);
+					admin.setEmail(email);
+					if(password != null)
+						admin.setPassword(password);
+					
+					session.persist(admin);
+					retValue.add(0, "true");
+				} else {
+					retValue.add(0, "false");
+					retValue.add(1, "Old password did not match");
+				}
+			} else {
+				retValue.add(0, "false");
+				retValue.add(1, "No admin found");
+			}
+			
+			transaction.commit();
+			session.close();
+			return retValue;
+		} catch (Exception e) {
+			e.printStackTrace();
+			retValue.add(0, "false");
+			retValue.add(1, "Exception Occured");
+			return retValue;
+		}
+	}
+	
+	public static List<String> adminDelete(int adminID, String password) {
+		List<String> retValue = new ArrayList<String>();
+		try{
+			SessionFactory factory = new Configuration().configure().buildSessionFactory();
+			Session session = factory.openSession();
+			Transaction transaction = session.beginTransaction();
+			
+			Admins admin = session.get(Admins.class, new Integer(adminID));
+				
+			if(admin != null) {
+				
+			} else {
+				retValue.add(0, "false");
+				retValue.add(1, "No admin found");
+			}
+			
+			transaction.commit();
+			session.close();
+			return retValue;
+		} catch (Exception e) {
+			e.printStackTrace();
+			retValue.add(0, "false");
+			retValue.add(1, "Exception Occured");
+			return retValue;
+		}
+	}
+	
+	public static List<String> userDelete(int userID, String password) {
+		List<String> retValue = new ArrayList<String>();
+		try{
+			SessionFactory factory = new Configuration().configure().buildSessionFactory();
+			Session session = factory.openSession();
+			Transaction transaction = session.beginTransaction();
+			
+			Users user = session.get(Users.class, new Integer(userID));
+				
+			if(user != null) {
+				
+			} else {
+				retValue.add(0, "false");
+				retValue.add(1, "No admin found");
+			}
+			
+			transaction.commit();
+			session.close();
+			return retValue;
+		} catch (Exception e) {
+			e.printStackTrace();
+			retValue.add(0, "false");
+			retValue.add(1, "Exception Occured");
+			return retValue;
+		}
+	}
 }
